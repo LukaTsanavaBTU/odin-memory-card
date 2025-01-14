@@ -1,10 +1,12 @@
 import './App.css'
+import CardsContainer from "./components/CardsContainer.jsx"
+
 
 function App() {
 
   return (
     <>
-      <p>Hello World!</p>
+      <CardsContainer/>
     </>
   )
 }
