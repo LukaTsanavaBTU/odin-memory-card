@@ -1,0 +1,25 @@
+:root {
+    --system-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: var(--system-font);
+}
+
+body {
+    background-color: #B1B2FF;
+}
+
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #AAC4FF;
+    border-radius: 20px;
+}
+
+.card img {
+    width: 300px;
+}

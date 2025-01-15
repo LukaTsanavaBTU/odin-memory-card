@@ -2,8 +2,8 @@ import { capitalizeFirstLetter } from "../utils";
 
 export default function Card({cardInfo, clickHandler}) {
     return (
-        <div onClick={clickHandler}>
-            <img src={cardInfo.art} width="300px" alt={cardInfo.name} />
+        <div className="card" onClick={clickHandler}>
+            <img src={cardInfo.art} alt={cardInfo.name} />
             <h1>{capitalizeFirstLetter(cardInfo.name)}</h1>
         </div>
     );

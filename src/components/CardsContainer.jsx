@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState } from "react"
 import { useEffect } from "react"
-import Card from "./Card.jsx";
+import { shuffled } from "../utils.js"
+import Card from "./Card.jsx"
 
 const pokemonNames = [
     "charizard",
@@ -17,6 +18,9 @@ const pokemonNames = [
 
 export default function CardsContainer() {
     const [pokemons, setPokemons] = useState([]);
+    const [clicked, setClicked] = useState([]);
+    const [score, setScore] = useState(0);
+    const [highScore, setHighScore] = useState(0);
 
     useEffect(() => {
         Promise.all(pokemonNames.map(name => 
@@ -29,17 +33,48 @@ export default function CardsContainer() {
         });
     }, []);
 
+    function clickHandler(name) {
+        if (!clicked.includes(name)) {
+            const newScore = score + 1;
+            setClicked([...clicked, name]);
+            setScore(newScore);
+            if (newScore > highScore) {
+                setHighScore(newScore);
+            }
+            if (newScore === pokemons.length) {
+                console.log("You Win!");
+                reset();
+            }
+            setPokemons(shuffled(pokemons));
+
+        } else {
+            console.log("You lose!");
+            reset();
+        }
+    }
+
+    function reset() {
+        setClicked(0);
+        setScore(0);
+        setClicked([]);
+        setPokemons(shuffled(pokemons));
+    }
+
     return (
-        <div style={{display: "flex", flexWrap: "wrap"}}>
-            {pokemons.length ?
-            pokemons.map((pokemon) =>
-                <Card
-                    key={pokemon.name}
-                    cardInfo={pokemon}
-                    clickHandler={() => {console.log("clicked " + pokemon.name)}}
-                />
-            )
-            : "Loading"}
-        </div>
+        <>
+            <p>Score: {score}</p>
+            <p>HighScore: {highScore}</p>
+            <div className={"cards-wrapper"}>
+                {pokemons.length ?
+                pokemons.map((pokemon) =>
+                    <Card
+                        key={pokemon.name}
+                        cardInfo={pokemon}
+                        clickHandler={() => clickHandler(pokemon.name)}
+                    />
+                )
+                : "Loading"}
+            </div>
+        </>
     );
 }
