@@ -62,8 +62,10 @@ export default function CardsContainer() {
 
     return (
         <>
-            <p>Score: {score}</p>
-            <p>HighScore: {highScore}</p>
+            <div className="scores">
+                <p>Score: {score}</p>
+                <p>HighScore: {highScore}</p>
+            </div>
             <div className={"cards-wrapper"}>
                 {pokemons.length ?
                 pokemons.map((pokemon) =>
