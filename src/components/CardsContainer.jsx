@@ -64,7 +64,7 @@ export default function CardsContainer() {
     return (
         <>
             <header>
-                <p className="info">Get points by clicking on an image but don't click on any more than once!</p>
+                <p className="info">Get points by clicking on an image but don&apos;t click on any more than once!</p>
             </header>
             <div className="scores">
                 <p>Score: {score}</p>
