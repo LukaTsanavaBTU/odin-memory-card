@@ -6,3 +6,6 @@ A memory card game made with React for an assignment in [The Odin Project](https
 - Using effect hooks;
 - Fetching information from an external API;
 - Working with and displaying data fetched from an API.
+
+## Screenshots
+[screenshot](public/screenshot.png)
