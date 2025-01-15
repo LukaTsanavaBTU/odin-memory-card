@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { shuffled } from "../utils.js"
 import Card from "./Card.jsx"
+import loadingImg from "../assets/loading.png"
 
 const pokemonNames = [
     "charizard",
@@ -62,6 +63,9 @@ export default function CardsContainer() {
 
     return (
         <>
+            <header>
+                <p className="info">Get points by clicking on an image but don't click on any more than once!</p>
+            </header>
             <div className="scores">
                 <p>Score: {score}</p>
                 <p>HighScore: {highScore}</p>
@@ -75,7 +79,7 @@ export default function CardsContainer() {
                         clickHandler={() => clickHandler(pokemon.name)}
                     />
                 )
-                : "Loading"}
+                : <img className="loading" src={loadingImg} alt="Loading"/>}
             </div>
         </>
     );
