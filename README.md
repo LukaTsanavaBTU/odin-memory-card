@@ -8,4 +8,4 @@ A memory card game made with React for an assignment in [The Odin Project](https
 - Working with and displaying data fetched from an API.
 
 ## Screenshots
-[screenshot](public/screenshot.png)
+![screenshot](https://github.com/LukaTsanavaBTU/odin-memory-card/blob/main/public/screenshot.png?raw=true)
