@@ -8,6 +8,15 @@ body {
     background-color: #222831;
 }
 
+dialog {
+    border: 2px solid #00ADB5;
+    border-radius: 5px;
+    outline: none;
+    background-color: #222831;
+    color: #EEEEEE;
+    font-size: 2rem;
+}
+
 header {
     display: flex;
     align-items: center;

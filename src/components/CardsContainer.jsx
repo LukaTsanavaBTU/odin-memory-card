@@ -22,6 +22,7 @@ export default function CardsContainer() {
     const [clicked, setClicked] = useState([]);
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
         Promise.all(pokemonNames.map(name => 
@@ -43,13 +44,13 @@ export default function CardsContainer() {
                 setHighScore(newScore);
             }
             if (newScore === pokemons.length) {
-                console.log("You Win!");
+                showModal("You Win!");
                 reset();
             }
             setPokemons(shuffled(pokemons));
 
         } else {
-            console.log("You lose!");
+            showModal("You Lost!");
             reset();
         }
     }
@@ -61,8 +62,20 @@ export default function CardsContainer() {
         setPokemons(shuffled(pokemons));
     }
 
+    function showModal(newMessage) {
+        setMessage(newMessage);
+        const modal = document.querySelector("dialog");
+        modal.showModal();
+        setTimeout(() => {
+            modal.close();
+        }, 1000);
+    }
+
     return (
         <>
+            <dialog>
+                <p>{message}</p>
+            </dialog>
             <header>
                 <p className="info">Get points by clicking on an image but don&apos;t click on any more than once!</p>
             </header>
